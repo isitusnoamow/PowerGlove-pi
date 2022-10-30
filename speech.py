@@ -2,6 +2,8 @@ import pyaudio
 #mic at index 1
 import speech_recognition as sr
 
+NULL_CHAR = chr(0)
+
 def write_report(report):
     with open('/dev/hidg0', 'rb+') as fd:
         fd.write(report.encode())
@@ -10,6 +12,7 @@ r = sr.Recognizer()
 with sr.Microphone(device_index=1) as source:
     r.adjust_for_ambient_noise(source)
     while True:
+        text = ""
         audio = r.listen(source)
         try:
             text = r.recognize_google(audio)
