@@ -1,2 +1,4 @@
 colorzero==2.0
 gpiozero==1.6.2
+PyAudio==0.2.12
+SpeechRecognition==3.8.1
